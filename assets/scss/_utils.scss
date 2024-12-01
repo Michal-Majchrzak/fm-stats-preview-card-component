@@ -1,0 +1,31 @@
+// Set border radius for TOP corners
+@mixin border-radius-top($value) {
+    border-top-left-radius: $value;
+    border-top-right-radius: $value;
+}
+// Set border radius for BOTTOM corners
+@mixin border-radius-bottom($value) {
+    border-bottom-left-radius: $value;
+    border-bottom-right-radius: $value;
+}
+// Set border radius for LEFT corners
+@mixin border-radius-left($value) {
+    border-top-left-radius: $value;
+    border-bottom-left-radius: $value;
+}
+// Set border radius for RIGHT corners
+@mixin border-radius-right($value) {
+    border-top-right-radius: $value;
+    border-bottom-right-radius: $value;
+}
+
+
+@mixin flex-column() {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-row() {
+    display: flex;
+    flex-direction: row;
+}
