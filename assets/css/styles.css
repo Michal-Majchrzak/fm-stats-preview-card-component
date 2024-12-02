@@ -17,6 +17,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 5.5rem 1.5rem;
+  height: 100vh;
 }
 
 .card {
@@ -110,11 +111,13 @@ body {
   .card .card-body {
     padding: 4.5rem;
     padding-bottom: 3.6875rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .card .description {
     gap: 1.5625rem;
     padding: unset;
-    padding-bottom: 4.5rem;
   }
   .card .statistics {
     flex-direction: row;

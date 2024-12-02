@@ -49,6 +49,7 @@ body {
     // Layout
     @include utils.flex-center;
     padding: px2rem(88) px2rem(24);
+    height: 100vh;
 }
 
 .card {
@@ -126,12 +127,13 @@ body {
         .card-body {
             padding: px2rem(72);
             padding-bottom: px2rem(59);
+            @include utils.flex-column;
+            justify-content: space-between;
         }
 
         .description {
             gap: px2rem(25);
             padding: unset;
-            padding-bottom: px2rem(72);
         }
 
         .statistics {
