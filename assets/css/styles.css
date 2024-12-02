@@ -14,14 +14,18 @@ img, picture {
 body {
   background-color: hsl(233, 47%, 7%);
   display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 5.5rem 1.5rem;
-  height: 100vh;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  max-width: 33.75rem;
   background-color: hsl(244, 38%, 16%);
   border-radius: 0.5rem;
-  box-shadow: 0 20px 20px -10px hsla(233, 28%, 13%, 0.2031);
+  box-shadow: 0 20px 20px -10px hsla(233, 28%, 13%, 0.2);
 }
 .card .card-body {
   padding: 2rem;
@@ -30,13 +34,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 0.5rem 0 1rem 0;
+  padding: 0.5rem 0 2.5rem 0;
 }
 .card .statistics {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 1.5rem 0;
 }
 .card .title {
   font-family: "Inter", sans-serif;
@@ -73,23 +76,78 @@ body {
   font-weight: 400;
   line-height: 1.5625rem;
   color: hsla(0, 0%, 100%, 0.6);
-  letter-spacing: 1px;
+  letter-spacing: 0.0625rem;
 }
 
 .color-mask {
   background-color: hsl(277, 64%, 61%);
+  border-radius: unset;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
 .color-mask img {
   opacity: 0.75;
   mix-blend-mode: multiply;
+  border-radius: unset;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
 
 .text-accent {
   color: hsl(277, 64%, 61%);
+}
+
+@media (min-width: 75rem) {
+  body {
+    padding: 11.0625rem 10.3125rem;
+  }
+  .card {
+    display: flex;
+    flex-direction: row-reverse;
+    max-width: 69.375rem;
+    max-height: 27.875rem;
+  }
+  .card .card-body {
+    padding: 4.5rem;
+    padding-bottom: 3.6875rem;
+  }
+  .card .description {
+    gap: 1.5625rem;
+    padding: unset;
+    padding-bottom: 4.5rem;
+  }
+  .card .statistics {
+    flex-direction: row;
+    gap: 3.875rem;
+  }
+  .card .title {
+    font-family: "Inter", sans-serif;
+    font-size: 2.375rem;
+    font-weight: 700;
+    line-height: 2.75rem;
+    color: hsl(0, 0%, 100%);
+    text-align: left;
+  }
+  .card .paragraph {
+    text-align: left;
+    padding-right: 3.3125rem;
+  }
+  .card .stat-box {
+    align-items: flex-start;
+  }
+  .color-mask {
+    border-radius: unset;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    max-width: max-content;
+  }
+  .color-mask img {
+    border-radius: unset;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    max-height: 100%;
+    width: unset;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,6 @@
+// Convert pixels to rem
+// @value - pixels value to convert
+// @rem_base -[optional] value of 1rem in pixels by default 1rem = 16px
+@function px2rem($value, $rem_base: 16) {
+    @return #{$value / $rem_base}rem;
+}

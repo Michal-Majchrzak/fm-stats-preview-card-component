@@ -1,5 +1,6 @@
 @use "reset";
 @use "utils";
+@use "tools" as *;
 
 $main_bg: hsl(233, 47%, 7%);
 $card_bg: hsl(244, 38%, 16%);
@@ -9,17 +10,17 @@ $white-75: hsla(0, 0%, 100%, 0.75);
 $white-60: hsla(0, 0%, 100%, 0.6);
 
 // Typography
-@mixin inter-bold {
+@mixin inter-bold($size, $line_height) {
     font-family: "Inter", sans-serif;
-    font-size: 1.75rem;
+    font-size: px2rem($size);
     font-weight: 700;
-    line-height: 2rem;
+    line-height: px2rem($line_height);
     color: $white;
 }
 
 @mixin inter-bold-2 {
     font-family: "Inter", sans-serif;
-    font-size: 1.5rem;
+    font-size: px2rem(24);
     font-weight: 700;
     line-height: auto;
     color: $white;
@@ -27,54 +28,53 @@ $white-60: hsla(0, 0%, 100%, 0.6);
 
 @mixin inter-regular {
     font-family: "Inter", sans-serif;
-    font-size: 0.9375rem;
+    font-size: px2rem(15);
     font-weight: 400;
-    line-height: 1.5625rem;
+    line-height: px2rem(25);
     color: $white-75;
 }
 
 @mixin lexend-deca-regular {
     font-family: "Lexend Deca", sans-serif;
-    font-size: 0.75rem;
+    font-size: px2rem(12);
     font-weight: 400;
-    line-height: 1.5625rem;
+    line-height: px2rem(25);
     color: $white-60;
-    letter-spacing: 1px;
+    letter-spacing: px2rem(1);
 }
 
 body {
     // Background
     background-color: $main_bg;
     // Layout
-    display: flex;
-    padding: 5.5rem 1.5rem;
-    // Transform
-    height: 100vh;
+    @include utils.flex-center;
+    padding: px2rem(88) px2rem(24);
 }
 
 .card {
+    @include utils.flex-column;
+    max-width: px2rem(540);
     background-color: $card_bg;
-    border-radius: 0.5rem;
-    box-shadow: 0 20px 20px -10px hsla(233, 28%, 13%, 0.2031);
+    border-radius: px2rem(8);
+    box-shadow: 0 20px 20px -10px hsla(233, 28%, 13%, 0.20);
 
     .card-body {
-        padding: 2rem;
+        padding: px2rem(32);
     }
 
     .description {
         @include utils.flex-column;
-        gap: 1rem;
-        padding: 0.5rem 0 1rem 0;
+        gap: px2rem(16);
+        padding: 0.5rem 0 2.5rem 0;
     }
 
     .statistics {
         @include utils.flex-column;
         gap: 1.5rem;
-        padding: 1.5rem 0;
     }
 
     .title {
-        @include inter-bold;
+        @include inter-bold(28, 32);
         text-align: center;
     }
 
@@ -109,6 +109,59 @@ body {
         @include utils.border-radius-top(inherit);
     }
 }
+
 .text-accent {
     color: $accent;
+}
+
+@media (min-width: px2rem(1200)) {
+    body {
+        padding: px2rem(177) px2rem(165);
+    }
+    .card {
+        @include utils.flex-row($reverse: true);
+        max-width: px2rem(1110);
+        max-height: px2rem(446);
+
+        .card-body {
+            padding: px2rem(72);
+            padding-bottom: px2rem(59);
+        }
+
+        .description {
+            gap: px2rem(25);
+            padding: unset;
+            padding-bottom: px2rem(72);
+        }
+
+        .statistics {
+            flex-direction: row;
+            gap: px2rem(62);
+        }
+
+        .title {
+            @include inter-bold(38, 44);
+            text-align: left;
+        }
+
+        .paragraph {
+            text-align: left;
+            padding-right: px2rem(53);
+        }
+
+        .stat-box {
+            align-items: flex-start;
+        }
+    }
+
+    .color-mask {
+        @include utils.border-radius-right(inherit);
+        max-width: max-content;
+
+        & img {
+            @include utils.border-radius-right(inherit);
+            max-height: 100%;
+            width: unset;
+        }
+    }
 }
