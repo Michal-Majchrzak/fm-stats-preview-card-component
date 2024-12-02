@@ -54,7 +54,7 @@ body {
 
 .card {
     @include utils.flex-column;
-    max-width: px2rem(540);
+    max-width: px2rem(480);
     background-color: $card_bg;
     border-radius: px2rem(8);
     box-shadow: 0 20px 20px -10px hsla(233, 28%, 13%, 0.20);
