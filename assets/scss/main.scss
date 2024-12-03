@@ -49,7 +49,7 @@ body {
     // Layout
     @include utils.flex-center;
     padding: px2rem(88) px2rem(24);
-    //height: 100vh;
+    height: max-content;
 }
 
 .card {
